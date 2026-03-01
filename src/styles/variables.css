@@ -1,0 +1,375 @@
+/*
+ * CSS Custom Properties (Design Tokens)
+ * Modern theme configuration with dark mode support
+ */
+
+:root {
+  /* ==========================================================================
+     COLOR PALETTE
+     Based on Tailwind CSS color system
+     ========================================================================== */
+
+  /* Primary - Indigo */
+  --color-primary-50: #eef2ff;
+  --color-primary-100: #e0e7ff;
+  --color-primary-200: #c7d2fe;
+  --color-primary-300: #a5b4fc;
+  --color-primary-400: #818cf8;
+  --color-primary-500: #6366f1;
+  --color-primary-600: #4f46e5;
+  --color-primary-700: #4338ca;
+  --color-primary-800: #3730a3;
+  --color-primary-900: #312e81;
+  --color-primary-950: #1e1b4b;
+
+  /* Secondary - Purple */
+  --color-secondary-50: #faf5ff;
+  --color-secondary-100: #f3e8ff;
+  --color-secondary-200: #e9d5ff;
+  --color-secondary-300: #d8b4fe;
+  --color-secondary-400: #c084fc;
+  --color-secondary-500: #a855f7;
+  --color-secondary-600: #9333ea;
+  --color-secondary-700: #7e22ce;
+  --color-secondary-800: #6b21a8;
+  --color-secondary-900: #581c87;
+  --color-secondary-950: #3b0764;
+
+  /* Slate - Neutral cool */
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  --color-slate-950: #020617;
+
+  /* Gray - Neutral */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-gray-950: #030712;
+
+  /* Semantic colors */
+  --color-success-500: #10b981;
+  --color-success-600: #059669;
+  --color-success-700: #047857;
+
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+  --color-error-700: #b91c1c;
+
+  --color-info-500: #3b82f6;
+  --color-info-600: #2563eb;
+  --color-info-700: #1d4ed8;
+
+  /* ==========================================================================
+     THEME COLORS (Light Mode Default)
+     ========================================================================== */
+
+  /* Backgrounds */
+  --color-bg: var(--color-gray-50);
+  --color-bg-surface: #ffffff;
+  --color-bg-surface-hover: var(--color-gray-50);
+  --color-bg-surface-active: var(--color-gray-100);
+  --color-bg-overlay: rgba(0, 0, 0, 0.5);
+
+  /* Text */
+  --color-text: var(--color-gray-900);
+  --color-text-primary: var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-600);
+  --color-text-tertiary: var(--color-gray-500);
+  --color-text-inverse: #ffffff;
+  --color-text-link: var(--color-primary-600);
+  --color-text-link-hover: var(--color-primary-700);
+
+  /* Borders */
+  --color-border: var(--color-gray-200);
+  --color-border-hover: var(--color-gray-300);
+  --color-border-focus: var(--color-primary-500);
+
+  /* Primary action */
+  --color-action: var(--color-primary-600);
+  --color-action-hover: var(--color-primary-700);
+  --color-action-active: var(--color-primary-800);
+
+  /* ==========================================================================
+     TYPOGRAPHY
+     ========================================================================== */
+
+  /* Font families */
+  --font-family-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+
+  /* Font sizes (based on 1rem = 16px) */
+  --font-size-xs: 0.75rem;      /* 12px */
+  --font-size-sm: 0.875rem;     /* 14px */
+  --font-size-base: 1rem;       /* 16px */
+  --font-size-lg: 1.125rem;     /* 18px */
+  --font-size-xl: 1.25rem;      /* 20px */
+  --font-size-2xl: 1.5rem;      /* 24px */
+  --font-size-3xl: 1.875rem;    /* 30px */
+  --font-size-4xl: 2.25rem;     /* 36px */
+  --font-size-5xl: 3rem;        /* 48px */
+
+  /* Font weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Line heights */
+  --line-height-none: 1;
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+
+  /* Letter spacing */
+  --letter-spacing-tighter: -0.05em;
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+  --letter-spacing-widest: 0.1em;
+
+  /* ==========================================================================
+     SPACING
+     Based on 4px grid system
+     ========================================================================== */
+
+  --space-0: 0;
+  --space-px: 1px;
+  --space-0\.5: 0.125rem;  /* 2px */
+  --space-1: 0.25rem;      /* 4px */
+  --space-1\.5: 0.375rem;  /* 6px */
+  --space-2: 0.5rem;       /* 8px */
+  --space-2\.5: 0.625rem;  /* 10px */
+  --space-3: 0.75rem;      /* 12px */
+  --space-4: 1rem;         /* 16px */
+  --space-5: 1.25rem;      /* 20px */
+  --space-6: 1.5rem;       /* 24px */
+  --space-7: 1.75rem;      /* 28px */
+  --space-8: 2rem;         /* 32px */
+  --space-9: 2.25rem;      /* 36px */
+  --space-10: 2.5rem;      /* 40px */
+  --space-11: 2.75rem;     /* 44px */
+  --space-12: 3rem;        /* 48px */
+  --space-14: 3.5rem;      /* 56px */
+  --space-16: 4rem;        /* 64px */
+  --space-20: 5rem;        /* 80px */
+  --space-24: 6rem;        /* 96px */
+  --space-28: 7rem;        /* 112px */
+  --space-32: 8rem;        /* 128px */
+  --space-36: 9rem;        /* 144px */
+  --space-40: 10rem;       /* 160px */
+  --space-44: 11rem;       /* 176px */
+  --space-48: 12rem;       /* 192px */
+  --space-52: 13rem;       /* 208px */
+  --space-56: 14rem;       /* 224px */
+  --space-60: 15rem;       /* 240px */
+  --space-64: 16rem;       /* 256px */
+  --space-72: 18rem;       /* 288px */
+  --space-80: 20rem;       /* 320px */
+  --space-96: 24rem;       /* 384px */
+
+  /* ==========================================================================
+     BORDER RADIUS
+     ========================================================================== */
+
+  --radius-none: 0;
+  --radius-sm: 0.125rem;   /* 2px */
+  --radius-default: 0.25rem; /* 4px */
+  --radius-md: 0.375rem;   /* 6px */
+  --radius-lg: 0.5rem;     /* 8px */
+  --radius-xl: 0.75rem;    /* 12px */
+  --radius-2xl: 1rem;      /* 16px */
+  --radius-3xl: 1.5rem;    /* 24px */
+  --radius-full: 9999px;
+
+  /* ==========================================================================
+     BOX SHADOWS
+     ========================================================================== */
+
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-default: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  --shadow-none: 0 0 #0000;
+
+  /* Colored shadows */
+  --shadow-primary: 0 4px 14px 0 rgba(79, 70, 229, 0.39);
+  --shadow-success: 0 4px 14px 0 rgba(16, 185, 129, 0.39);
+  --shadow-warning: 0 4px 14px 0 rgba(245, 158, 11, 0.39);
+  --shadow-error: 0 4px 14px 0 rgba(239, 68, 68, 0.39);
+
+  /* ==========================================================================
+     TRANSITIONS
+     ========================================================================== */
+
+  --transition-duration-fast: 150ms;
+  --transition-duration-normal: 300ms;
+  --transition-duration-slow: 500ms;
+
+  --transition-timing-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-timing-in: cubic-bezier(0.4, 0, 1, 1);
+  --transition-timing-out: cubic-bezier(0, 0, 0.2, 1);
+  --transition-timing-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --transition-fast: var(--transition-duration-fast) var(--transition-timing-default);
+  --transition-normal: var(--transition-duration-normal) var(--transition-timing-default);
+  --transition-slow: var(--transition-duration-slow) var(--transition-timing-default);
+
+  /* ==========================================================================
+     Z-INDEX SCALE
+     ========================================================================== */
+
+  --z-index-hidden: -1;
+  --z-index-base: 0;
+  --z-index-dropdown: 100;
+  --z-index-sticky: 200;
+  --z-index-fixed: 300;
+  --z-index-modal-backdrop: 400;
+  --z-index-modal: 500;
+  --z-index-popover: 600;
+  --z-index-tooltip: 700;
+  --z-index-toast: 800;
+
+  /* ==========================================================================
+     LAYOUT
+     ========================================================================== */
+
+  /* Container max widths */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+
+  /* Header heights */
+  --header-height: 64px;
+  --header-height-sm: 56px;
+
+  /* Sidebar widths */
+  --sidebar-width: 280px;
+  --sidebar-width-collapsed: 80px;
+
+  /* ==========================================================================
+     BREAKPOINTS (for reference in JS)
+     ========================================================================== */
+
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/* ==========================================================================
+   DARK MODE
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Backgrounds */
+    --color-bg: var(--color-gray-950);
+    --color-bg-surface: var(--color-gray-900);
+    --color-bg-surface-hover: var(--color-gray-800);
+    --color-bg-surface-active: var(--color-gray-700);
+    --color-bg-overlay: rgba(0, 0, 0, 0.7);
+
+    /* Text */
+    --color-text: var(--color-gray-100);
+    --color-text-primary: var(--color-gray-100);
+    --color-text-secondary: var(--color-gray-400);
+    --color-text-tertiary: var(--color-gray-500);
+    --color-text-inverse: var(--color-gray-900);
+    --color-text-link: var(--color-primary-400);
+    --color-text-link-hover: var(--color-primary-300);
+
+    /* Borders */
+    --color-border: var(--color-gray-800);
+    --color-border-hover: var(--color-gray-700);
+    --color-border-focus: var(--color-primary-400);
+
+    /* Primary action */
+    --color-action: var(--color-primary-500);
+    --color-action-hover: var(--color-primary-400);
+    --color-action-active: var(--color-primary-300);
+
+    /* Shadows for dark mode */
+    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.4);
+    --shadow-default: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Manual dark mode class (for toggle) */
+[data-theme="dark"] {
+  --color-bg: var(--color-gray-950);
+  --color-bg-surface: var(--color-gray-900);
+  --color-bg-surface-hover: var(--color-gray-800);
+  --color-bg-surface-active: var(--color-gray-700);
+  --color-bg-overlay: rgba(0, 0, 0, 0.7);
+
+  --color-text: var(--color-gray-100);
+  --color-text-primary: var(--color-gray-100);
+  --color-text-secondary: var(--color-gray-400);
+  --color-text-tertiary: var(--color-gray-500);
+  --color-text-inverse: var(--color-gray-900);
+  --color-text-link: var(--color-primary-400);
+  --color-text-link-hover: var(--color-primary-300);
+
+  --color-border: var(--color-gray-800);
+  --color-border-hover: var(--color-gray-700);
+  --color-border-focus: var(--color-primary-400);
+
+  --color-action: var(--color-primary-500);
+  --color-action-hover: var(--color-primary-400);
+  --color-action-active: var(--color-primary-300);
+}
+
+/* ==========================================================================
+   HIGH CONTRAST MODE
+   ========================================================================== */
+
+@media (prefers-contrast: high) {
+  :root {
+    --color-border: var(--color-gray-900);
+    --color-text-secondary: var(--color-gray-800);
+  }
+}
+
+/* ==========================================================================
+   REDUCED TRANSPARENCY
+   ========================================================================== */
+
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --color-bg-overlay: var(--color-gray-900);
+  }
+}

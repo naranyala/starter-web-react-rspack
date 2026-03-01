@@ -1,0 +1,339 @@
+/*
+ * Modern CSS Reset
+ * Based on: https://www.joshwcomeau.com/css/custom-css-reset/
+ * and https://hankchizljaw.com/wrote/a-modern-css-reset/
+ */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevent font size inflation on mobile */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+}
+
+/* Remove list styles on ul, ol elements */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Make images and videos easier to work with */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Remove button styling */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* Remove table cell spacing */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Remove default anchor styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove default form styling */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+/* Remove default fieldset styling */
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+/* Remove default legend styling */
+legend {
+  padding: 0;
+}
+
+/* Remove default dialog styling */
+dialog {
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+/* Remove details/summary default styling */
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+/* Remove quote marks from blockquote/q */
+blockquote,
+q {
+  quotes: none;
+}
+
+/* Remove hr default styling */
+hr {
+  border: none;
+  border-top: 1px solid currentColor;
+}
+
+/* Remove mark default styling */
+mark {
+  background: transparent;
+  color: inherit;
+}
+
+/* Remove kbd default styling */
+kbd {
+  font-family: inherit;
+}
+
+/* Remove code/pre default styling */
+code,
+pre {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Remove abbr default styling */
+abbr {
+  text-decoration: none;
+}
+
+/* Remove address default styling */
+address {
+  font-style: inherit;
+}
+
+/* Remove small default styling */
+small {
+  font-size: inherit;
+}
+
+/* Remove sub/sup default styling */
+sub,
+sup {
+  font-size: inherit;
+  line-height: inherit;
+  vertical-align: baseline;
+}
+
+/* Remove figure/figcaption default styling */
+figure {
+  display: block;
+}
+
+/* Remove iframe border */
+iframe {
+  border: none;
+}
+
+/* Remove inert element pointer events */
+[inert] {
+  pointer-events: none;
+}
+
+/* Remove outline when focus-visible is supported */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary, #4f46e5);
+  outline-offset: 2px;
+}
+
+/* Remove tap highlight on touch devices */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.1;
+  text-wrap: pretty;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/* Set default font sizes */
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--color-text, #1f2937);
+  background-color: var(--color-bg, #ffffff);
+}
+
+/* Set default cursor on interactive elements */
+button,
+label,
+input,
+textarea,
+select,
+a[href],
+[tabindex]:not([tabindex="-1"]) {
+  touch-action: manipulation;
+}
+
+/* Set default cursor on buttons */
+button,
+[role="button"] {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Set default cursor on disabled buttons */
+button:disabled,
+[role="button"]:disabled {
+  cursor: not-allowed;
+}
+
+/* Remove user-select on non-interactive elements */
+span,
+div,
+p,
+section,
+article,
+header,
+footer,
+nav,
+aside {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Allow user-select on form elements and contenteditable */
+input,
+textarea,
+select,
+[contenteditable="true"],
+[contenteditable="plaintext-only"] {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+}
+
+/* Set default overflow on body */
+body {
+  overflow-x: hidden;
+}
+
+/* Set default height on html and body */
+html,
+body {
+  height: 100%;
+}
+
+/* Set default display on main */
+main {
+  display: block;
+}
+
+/* Set default display on templates */
+template {
+  display: none;
+}
+
+/* Set default display on hidden */
+[hidden] {
+  display: none !important;
+}
+
+/* Set default display on invisible */
+[invisible] {
+  visibility: hidden;
+}
+
+/* Set default display on sr-only (screen reader only) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
