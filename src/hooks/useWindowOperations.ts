@@ -4,38 +4,91 @@ import { useState, useEffect, useCallback } from 'react';
 import { windowManager, WindowInfo } from '../services/window-manager';
 import { Logger } from '../services/utils/logger';
 import { generateSystemInfoHTML, generateSQLiteHTML } from '../services/utils/window-content';
-import WinBox from 'winbox/src/js/winbox.js';
+
+// WinBox is loaded globally via index.tsx
+declare global {
+  interface Window {
+    WinBox: any;
+  }
+}
 
 export const useWindowOperations = (setActiveWindows: React.Dispatch<React.SetStateAction<WindowInfo[]>>) => {
   const [dbUsers, setDbUsers] = useState<any[]>([]);
   const [isLoadingUsers, setIsLoadingUsers] = useState(false);
 
   const openWindow = useCallback((title: string, content: string, icon: string) => {
+    if (!window.WinBox) {
+      Logger.error('WinBox is not loaded');
+      return;
+    }
+
     const windowId = 'win-' + Date.now();
     const sidebarWidth = 200;
     const availableWidth = window.innerWidth - sidebarWidth;
     const availableHeight = window.innerHeight - 40;
 
-    const winboxInstance = new WinBox({
-      title: title,
-      background: '#1e293b',
-      border: 4,
-      width: availableWidth,
-      height: availableHeight,
-      x: sidebarWidth,
-      y: 0,
-      minwidth: '300px',
-      minheight: '300px',
+    const winboxInstance = new window.WinBox({
+      title: `${icon} ${title}`,
+      background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
+      border: 6,
+      width: Math.min(900, Math.max(600, availableWidth * 0.8)),
+      height: Math.min(650, Math.max(400, availableHeight * 0.8)),
+      x: sidebarWidth + 20,
+      y: 40,
+      minwidth: 400,
+      minheight: 300,
       max: true,
-      min: true,
+      min: false,
       mount: document.createElement('div'),
       oncreate: function() {
+        this.body.style.background = '#ffffff';
+        this.body.style.color = '#1f2937';
         this.body.innerHTML = content;
+        this.body.style.height = '100%';
+        this.body.style.overflow = 'auto';
+        this.focus();
+      },
+      onfocus: function() {
+        this.addClass('focused');
+      },
+      onblur: function() {
+        this.removeClass('focused');
       },
       onmaximize: function() {
-        this.resize(availableWidth, availableHeight);
-        this.move(sidebarWidth, 0);
-      }
+        setTimeout(() => {
+          this.x = sidebarWidth + 10;
+          this.y = 10;
+          this.width = window.innerWidth - sidebarWidth - 20;
+          this.height = window.innerHeight - 20;
+        }, 50);
+      },
+      onunmaximize: function() {
+        setTimeout(() => {
+          this.x = sidebarWidth + 20;
+          this.y = 40;
+          this.width = Math.min(900, Math.max(600, availableWidth * 0.8));
+          this.height = Math.min(650, Math.max(400, availableHeight * 0.8));
+        }, 50);
+      },
+      onresize: function() {
+        if (this.x < sidebarWidth + 20) {
+          this.x = sidebarWidth + 20;
+        }
+      },
+      onclose: function() {
+        windowManager.removeWindow(windowId);
+        setActiveWindows([...windowManager.getAllWindows()]);
+        return false;
+      },
+      onminimize: function() {
+        Logger.info('Window minimized', { title });
+      },
+      onrestore: function() {
+        setTimeout(() => {
+          this.x = sidebarWidth + 20;
+          this.y = 40;
+        }, 50);
+      },
     });
 
     windowManager.registerWindow(windowId, title, winboxInstance);

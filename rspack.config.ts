@@ -80,13 +80,6 @@ export default defineConfig({
         test: /\.svg$/,
         type: 'asset',
       },
-      {
-        test: /winbox.*\.js$/,
-        type: 'asset/resource',
-        generator: {
-          filename: 'static/js/winbox.min.js',
-        },
-      },
     ],
   },
   output: {

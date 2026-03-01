@@ -56,6 +56,28 @@ interface TabProps {
   badge?: number;
 }
 
+// Tab Button Component (memoized for performance)
+const TabButton = React.memo<TabProps>(({ label, icon, active, onClick, badge }) => (
+  <button
+    type="button"
+    className={`devtools-tab ${active ? 'active' : ''}`}
+    onClick={onClick}
+    role="tab"
+    aria-selected={active}
+    tabIndex={0}
+  >
+    <span>{icon}</span>
+    {label}
+    {badge !== undefined && badge > 0 && (
+      <span className="devtools-tab-badge">
+        {badge > 99 ? '99+' : badge}
+      </span>
+    )}
+  </button>
+));
+
+TabButton.displayName = 'TabButton';
+
 // Unified Bottom Panel Component
 export const BottomPanel: React.FC<{ wsStatus: WsStatus }> = ({ wsStatus }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -235,24 +257,6 @@ export const BottomPanel: React.FC<{ wsStatus: WsStatus }> = ({ wsStatus }) => {
       case 'disconnected': return '○';
     }
   };
-
-  const TabButton: React.FC<TabProps> = ({ label, icon, active, onClick, badge }) => (
-    <button
-      type="button"
-      className={`devtools-tab ${active ? 'active' : ''}`}
-      onClick={onClick}
-      role="tab"
-      aria-selected={active}
-    >
-      <span>{icon}</span>
-      {label}
-      {badge !== undefined && badge > 0 && (
-        <span className="devtools-tab-badge">
-          {badge > 99 ? '99+' : badge}
-        </span>
-      )}
-    </button>
-  );
 
   const errorCount = logs.filter(l => l.level === 'error' || l.level === 'critical').length;
 

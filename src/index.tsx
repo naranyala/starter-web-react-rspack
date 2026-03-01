@@ -10,9 +10,17 @@ import './styles/index.css';
 // Import WinBox CSS from node_modules
 import 'winbox/dist/css/winbox.min.css';
 
-// Import WinBox JS and expose it globally
-import WinBox from 'winbox';
-window.WinBox = WinBox;
+// WinBox is a UMD module that attaches itself to window object
+declare global {
+  interface Window {
+    WinBox: any;
+  }
+}
+
+// Load WinBox JS bundle as a side effect (it attaches to window)
+// Using the bundled version which properly exposes to window object
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+require('winbox/dist/winbox.bundle.min.js');
 
 initGlobalErrorHandlers();
 
